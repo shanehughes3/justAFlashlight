@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private boolean isFlashlightOn;
@@ -34,5 +35,11 @@ public class MainActivity extends AppCompatActivity {
             cam.release();
             isFlashlightOn = false;
         }
+        updateStatusText();
+    }
+
+    private void updateStatusText() {
+        TextView view = (TextView) findViewById(R.id.textView);
+        view.setText((isFlashlightOn) ? R.string.light_status_on : R.string.light_status_off);
     }
 }
